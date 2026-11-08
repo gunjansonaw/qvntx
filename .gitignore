@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+backend/.cache/
+
+# Node / build output
+node_modules/
+frontend/dist/
+
+# Environment & local tooling
+.env
+.env.*
+!.env.example
+.vercel/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Challenge brief - not part of the submission
+REint_Full_Stack_SWE_Challenge.pdf
