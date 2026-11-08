@@ -1,0 +1,8 @@
+# Runtime dependencies (kept deliberately small: no pandas/numpy needed for ~25k rows,
+# which keeps the Docker image lean and serverless cold starts fast).
+fastapi==0.160.0
+uvicorn[standard]==0.52.4
+httpx==0.28.1
+pydantic==2.13.5
+# IANA time-zone database for zoneinfo("Europe/London") on slim/Windows images.
+tzdata==2026.5
