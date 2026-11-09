@@ -4,8 +4,8 @@ A web app for a UK energy supplier's **day-ahead power purchasing desk**. It sho
 forecast the desk could actually see at auction time and how far that forecast missed the real wind.
 It turns those misses into planning numbers for procurement: how much extra power to buy beyond what the wind will cover.
 
-- **Live app:** `<add your Vercel / Heroku URL here>`
-- **API docs (OpenAPI):** `<app URL>/api/docs`
+- **Live app (Vercel):** <https://qvntx.vercel.app>
+- **API docs (OpenAPI):** <https://qvntx.vercel.app/api/docs>
 - **Data:** Elexon BMRS — `FUELHH` (actual wind generation) and `WINDFOR` (national wind forecast), fetched
   live, for purchase decisions made in **January 2026**.
 
