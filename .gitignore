@@ -20,5 +20,5 @@ Thumbs.db
 .idea/
 .vscode/
 
-# Challenge brief - not part of the submission
-REint_Full_Stack_SWE_Challenge.pdf
+# Local reference documents - not part of the submission
+/*.pdf

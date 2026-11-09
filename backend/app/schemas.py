@@ -1,4 +1,4 @@
-"""Pydantic response models - the public API contract (also drives /docs).
+"""Pydantic response models - the public API contract (also drives /api/docs).
 
 Fields are snake_case in Python and camelCase on the wire for the JS client.
 """

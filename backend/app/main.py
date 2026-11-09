@@ -1,7 +1,7 @@
 """FastAPI application factory.
 
 Run locally:   uvicorn app.main:app --reload        (from the backend/ directory)
-API docs:      http://localhost:8000/docs
+API docs:      http://localhost:8000/api/docs
 """
 
 from __future__ import annotations
@@ -55,6 +55,11 @@ def create_app(settings: Settings | None = None, repository: WindDataRepository 
         description="Day-ahead wind forecast intelligence for GB power procurement "
         "(Elexon BMRS FUELHH outturn vs WINDFOR forecasts).",
         lifespan=lifespan,
+        # Docs live under /api so they reach the backend in every deployment shape:
+        # Vite and nginx proxy only /api, and Vercel routes only /api/* to the function.
+        docs_url="/api/docs",
+        redoc_url="/api/redoc",
+        openapi_url="/api/openapi.json",
     )
     app.state.settings = settings
     app.state.repository = repository

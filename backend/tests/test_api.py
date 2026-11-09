@@ -10,6 +10,12 @@ def test_health_does_not_require_data(client):
     assert body["status"] == "ok" and body["dataMode"] == "snapshot"
 
 
+def test_docs_are_served_under_api_prefix(client):
+    # Only /api/* reaches the backend behind Vite, nginx and Vercel, so the docs must live there.
+    assert client.get("/api/docs").status_code == 200
+    assert client.get("/api/openapi.json").json()["info"]["title"] == "Wind Desk API"
+
+
 def test_meta_describes_window_and_provenance(client):
     body = client.get("/api/meta").json()
     assert body["decisionDays"] == {"firstDay": "2026-01-01", "lastDay": "2026-01-31"}

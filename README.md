@@ -5,7 +5,7 @@ forecast the desk could actually see at auction time and how far that forecast m
 It turns those misses into planning numbers for procurement: how much extra power to buy beyond what the wind will cover.
 
 - **Live app:** `<add your Vercel / Heroku URL here>`
-- **API docs (OpenAPI):** `<app URL>/docs`
+- **API docs (OpenAPI):** `<app URL>/api/docs`
 - **Data:** Elexon BMRS — `FUELHH` (actual wind generation) and `WINDFOR` (national wind forecast), fetched
   live, for purchase decisions made in **January 2026**.
 
@@ -88,7 +88,7 @@ docker compose up --build
 ```
 
 - UI: <http://localhost:8080> (nginx serves the React build and proxies `/api`)
-- API: <http://localhost:8000/docs>
+- API docs: <http://localhost:8000/api/docs>
 
 On start-up the backend fetches January 2026 data **live from Elexon** (~2–3 s) and pre-computes the default
 views. Run `DATA_MODE=snapshot docker compose up --build` to work fully offline.
@@ -159,7 +159,7 @@ npm run dev
 │   └── Dockerfile                   Multi-stage: build with Node, serve with nginx
 ├── api/index.py                     Vercel serverless entrypoint (re-exports the FastAPI app)
 ├── vercel.json                      Vercel build + /api rewrite
-├── requirements.txt                 For Vercel's Python runtime (includes backend/requirements.txt)
+├── requirements.txt                 For Vercel's Python runtime (mirrors backend/requirements.txt; a test keeps them in sync)
 ├── Dockerfile                       Single-container production image (React build served by FastAPI)
 ├── heroku.yml                       Heroku container deployment
 ├── docker-compose.yml               Local two-container stack
@@ -249,7 +249,7 @@ Then P10 = forecast − errorP90 and P90 = forecast − errorP10.
 
 ## API reference
 
-All endpoints are `GET` and return JSON. Interactive docs are at `/docs`.
+All endpoints are `GET` and return JSON. Interactive docs are at `/api/docs` (OpenAPI schema at `/api/openapi.json`).
 
 | Endpoint | Purpose |
 | --- | --- |
