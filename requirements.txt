@@ -1,3 +1,8 @@
-# Read by Vercel's Python runtime for api/index.py. The single source of truth is
-# backend/requirements.txt (also used by the Docker images).
--r backend/requirements.txt
+# Read by Vercel's Python runtime for api/index.py. Vercel cannot follow "-r" includes,
+# so this mirrors backend/requirements.txt (the source of truth for the Docker images).
+# tests/test_requirements_sync.py fails if the two files drift apart.
+fastapi==0.160.0
+uvicorn[standard]==0.52.4
+httpx==0.28.1
+pydantic==2.13.5
+tzdata==2026.5
